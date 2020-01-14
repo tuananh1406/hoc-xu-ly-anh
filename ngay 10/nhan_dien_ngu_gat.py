@@ -61,3 +61,19 @@ tuy_chon.add_argument(
         help='Đường dẫn tệp video',
         )
 cac_tuy_chon = vars(tuy_chon.parse_args())
+
+#Khởi tạo 2 biến, biến tỉ lệ khung hình của mắt để tính số lần nháy
+#mắt, 1 biến cho số khung hình liên tiếp mắt nhắm - biến này nếu vượt
+#ngưỡng nhất định sẽ được xem là ngủ gật
+NGUONG_TI_LE_MAT = 0.3
+SO_KHUNG_HINH = 48
+
+#Khởi tạo bộ đếm khung hình cùng với biến trạng thái của âm cảnh báo
+BO_DEM = 0
+CHUONG_BAO = False
+
+#Khởi tạo bộ nhận diện khuôn mặt (HOG-based) và sau đó tạo ra bộ nhận
+#diện các điểm mốc trên mặt
+print('[INFO] Tải tệp nhận diện điểm mốc...')
+nhan_dien_khuon_mat = dlib.get_frontal_face_detector()
+
