@@ -2,4 +2,6 @@ opencv-contrib-python
 imutils
 dlib
 playsound
-pyobjc
+tensorflow
+keras
+sklearn

@@ -91,7 +91,7 @@ if cac_tuy_chon['webcam']:
     truc_tiep = False
 if cac_tuy_chon['video']:
     print('[INFO] Mở tệp phim...')
-    video = FileVideoStream(src=cac_tuy_chon['video']).start()
+    video = FileVideoStream(cac_tuy_chon['video']).start()
     truc_tiep = True
 time.sleep(1.0)
 
@@ -108,11 +108,11 @@ while True:
         break
     khung_hinh = imutils.resize(
             khung_hinh,
-            width_450,
+            width=450,
             )
     den_trang = cv2.cvtColor(
             khung_hinh,
-            cv2,COLOR_BGR2GRAY,
+            cv2.COLOR_BGR2GRAY,
             )
 
     #Tìm các khuôn mặt có trong ảnh đen trắng
@@ -126,8 +126,8 @@ while True:
 
         #Lấy tọa độ mắt trái, mắt phải, và sử dụng nó để tính tỉ lệ
         #mắt
-        mat_trai = hinh_khuon_mat[trai_dau:trai_cuoi]
-        mat_phai = hinh_khuon_mat[phai_dau:phai_cuoi]
+        mat_trai = hinh_khuon_mat[dau_trai:cuoi_trai]
+        mat_phai = hinh_khuon_mat[dau_phai:cuoi_phai]
         ti_le_mat_trai = ti_le_mat(mat_trai)
         ti_le_mat_phai = ti_le_mat(mat_phai)
 
