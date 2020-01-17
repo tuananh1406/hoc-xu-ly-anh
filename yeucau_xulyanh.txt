@@ -5,3 +5,5 @@ playsound
 tensorflow
 keras
 sklearn
+requests
+matplotlib
